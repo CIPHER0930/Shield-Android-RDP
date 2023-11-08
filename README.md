@@ -1,52 +1,63 @@
-# Shield-Android-RDP
+Shield Android RDP
+This repository provides a tool for mirroring a remote Android device using a PDF payload, shield-server.jar file, and Shield.py script.
 
-This is a Python script that can be used to remotely control an Android device using a PDF payload.
+Requirements
+Python 3.x
+Adb (Android Debug Bridge)
+Ngrok (optional, if you want to use a public URL)
+Installation
+Clone the repository:
+Bash
+git clone https://github.com/CIPHER0930/Shield-Android-RDP.git
+Use code with caution. Learn more
+Download and install ngrok (optional):
+Bash
+wget https://bin.ngrok.com/v8/ngrok-stable-linux-amd64.zip
+unzip ngrok-stable-linux-amd64.zip
+sudo mv ngrok /usr/local/bin
+Use code with caution. Learn more
+Usage
+Step 1: Generate a PDF payload
 
-## How to use
+Connect your Android device to your computer using a USB cable.
+Enable USB debugging on your Android device.
+Open a terminal window and navigate to the repository directory.
+Run the following command:
+Bash
+python Shield.py generate_pdf_payload
+Use code with caution. Learn more
+This will generate a PDF payload file named payload.pdf.
 
-1. Install the required dependencies:
-    * `ngrok`
-    * `socket`
-    * `struct`
-    * `time`
-    * `numpy`
-    * `adbutils`
-    * `av`
-    * `Shield-Android-RDP`
-0R just type
-"pip3 install requirents.txt"
+Step 2: Start the Shield server
 
-2. Get the PDF payload for your Android device. You can do this using the following command:
-    ```
-    python Shield.py generate_pdf_payload
-    ```
+Open a terminal window and navigate to the repository directory.
+Run the following command:
+Bash
+java -jar shield-server.jar payload.pdf
+Use code with caution. Learn more
+This will start the Shield server, which will listen for connections from the Shield.py script.
 
-3. Start ngrok and get the public URL.
-4. Run the following command to start the Shield server:
-    ```
-    python Shield.py start --pdf-payload <PDF_PAYLOAD>
-    
+Step 3: Start the Shield.py script
 
-5. On your Android device, open the PDF payload in any PDF viewer.
-6. Once the PDF payload is opened, the Shield server will start mirroring the Android device's screen.
+Open a terminal window and navigate to the repository directory.
+Run the following command:
+Bash
+python Shield.py start
+Use code with caution. Learn more
+This will start the Shield.py script, which will connect to the Shield server and start mirroring the Android device's screen.
 
-## Git repository
+Step 4: Connect to the Android device
 
-The Git repository for this project is located at:
+Open a web browser and navigate to the following URL:
+http://<public_url>:5555
+Replace <public_url> with the public URL of your ngrok tunnel, if you are using ngrok. If you are not using ngrok, use your local IP address instead.
 
+You should now see the Android device's screen being mirrored in your web browser.
 
-https://github.com/CIPHER0930/Shield-Android-RDP
+Troubleshooting
+If you are having trouble connecting to the Shield server, make sure that you have started the Shield server and that your Android device is connected to the same network as your computer.
 
+If you are having trouble mirroring the Android device's screen, make sure that you have enabled USB debugging on your Android device and that you have installed Adb.
 
-## File to run
-
-The file to run is called `Shield.py`.
-
-## Caution
-
-This script can be used to remotely control an Android device. This could allow an attacker to steal data, install malware, or even take complete control of the device. Use this script with caution and only on devices that you trust.
-
-
-
-###################################
-###################################
+Contributing
+If you are interested in contributing to this project, please feel free to create an issue or pull request.
